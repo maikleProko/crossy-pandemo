@@ -41,12 +41,33 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Sources\CharacterSources\Character.cs" />
      <Compile Include="Assets\Sources\Level.cs" />
+     <Compile Include="Assets\Sources\PlayerControllerSources\CameraComponent.cs" />
      <Folder Include="Assets" />
+     <None Include="Assets\Content\TrashContent\PolygonFantasyRivals\Meshes\Characters\SK_BR_Character_Dwarf_01_log.txt" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Textures\Misc" />
      <Folder Include="Assets\Content" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Meshes\Weapons" />
+     <Folder Include="Assets\Objects\TrashObjects" />
+     <Folder Include="Assets\Sources\TrashSources" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Meshes" />
+     <Folder Include="Assets\Content\TrashContent\TestScene\Textures" />
      <Folder Include="Assets\Objects" />
+     <Folder Include="Assets\Content\TrashContent" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Textures" />
+     <Folder Include="Assets\Content\ScenesContent" />
+     <Folder Include="Assets\Sources\CharacterSources" />
+     <Folder Include="Assets\Content\TrashContent\TestScene\Mesh" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Materials" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Meshes\Props" />
      <Folder Include="Assets\Sources" />
-     <Folder Include="Assets\Objects\Scenes" />
+     <Folder Include="Assets\Sources\PlayerControllerSources" />
+     <Folder Include="Assets\Content\TrashContent\TestScene" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Textures\Alternates" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals" />
+     <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Meshes\Characters" />
+     <Folder Include="Assets\Objects\ScenesObjects" />
      <Reference Include="UnityEngine">
      <HintPath>D:\Program Files (x86)\Unity\2021.3.18f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
