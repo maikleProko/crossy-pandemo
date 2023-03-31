@@ -43,7 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Sources\PlayerControllerSources\CameraComponent.cs" />
      <Compile Include="Assets\Sources\CharacterSources\Character.cs" />
-     <Compile Include="Assets\Sources\Level.cs" />
+     <Compile Include="Assets\Sources\PlayerController.cs" />
      <Folder Include="Assets" />
      <None Include="Assets\Content\TrashContent\PolygonFantasyRivals\Meshes\Characters\SK_BR_Character_Dwarf_01_log.txt" />
      <Folder Include="Assets\Content\TrashContent\PolygonFantasyRivals\Textures\Misc" />

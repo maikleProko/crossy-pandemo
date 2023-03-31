@@ -5,7 +5,13 @@ namespace Sources.CharacterSources {
 
         [SerializeField] private float _maxSpeed;
 
+        private Vector3 _directionJump;
         private float _speed;
+        
+        private const float LEFT = -180;
+        private const float UP = -90;
+        private const float RIGHT = 0;
+        private const float DOWN = -270;
 
         private Character() {
             _speed = 0;
@@ -25,10 +31,30 @@ namespace Sources.CharacterSources {
             Move();
             DecreaseSpeed();
         }
-        
-        
+
+        private void Rotate(float value) {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, value, transform.eulerAngles.z));
+        }
+
         public void JumpForward() {
             _speed = _maxSpeed;
         }
+        
+        public void RotateLeft() {
+            Rotate(LEFT);
+        }
+        
+        public void RotateRight() {
+            Rotate(RIGHT);
+        }
+
+        public void RotateDown() {
+            Rotate(DOWN);
+        }
+
+        public void RotateUp() {
+            Rotate(UP);
+        }
+        
     }
 }

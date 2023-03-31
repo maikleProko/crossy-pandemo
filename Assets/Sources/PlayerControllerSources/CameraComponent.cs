@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
 namespace Sources.PlayerControllerSources {
-    public class CameraComponent : MonoBehaviour {
+    public class CameraComponent : MonoBehaviour  {
 
         [SerializeField] private float _smoothFactor;
         [SerializeField] private Transform _targetTransform;
         
         private Vector3 _differenceTransformPositionSelfTarget;
         private Vector3 _standardDifferenceTransformPositionSelfTarget;
+        
 
         private CameraComponent() {
             _differenceTransformPositionSelfTarget = new Vector3(0, 0, 0);
