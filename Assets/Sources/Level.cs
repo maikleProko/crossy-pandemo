@@ -18,13 +18,8 @@ namespace Sources {
             }
         }
 
-        private void MoveCameraToDestination() {
-            _cameraComponent.MoveCameraToDestination(_character.transform);
-        }
-    
         private void Update() {
             CatchTouch();
-            MoveCameraToDestination();
         }
 
         private void HandleTouch() {

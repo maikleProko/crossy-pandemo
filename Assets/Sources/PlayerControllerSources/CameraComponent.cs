@@ -1,28 +1,42 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Sources.PlayerControllerSources {
     public class CameraComponent : MonoBehaviour {
 
         [SerializeField] private float _smoothFactor;
+        [SerializeField] private Transform _targetTransform;
         
-        private Transform _destination;
+        private Vector3 _differenceTransformPositionSelfTarget;
+        private Vector3 _standardDifferenceTransformPositionSelfTarget;
+
+        private CameraComponent() {
+            _differenceTransformPositionSelfTarget = new Vector3(0, 0, 0);
+        }
+
+        private void Start() {
+            var position = transform.position;
+            var targetPosition = _targetTransform.position;
+            _differenceTransformPositionSelfTarget = position - targetPosition;
+            _standardDifferenceTransformPositionSelfTarget = position - targetPosition;
+        }
+
 
         private Vector3 GetVectorForMoveToDestination() {
-            return (transform.position - _destination.position) * ((_smoothFactor) * (float)0.005);
+            return (_differenceTransformPositionSelfTarget - _standardDifferenceTransformPositionSelfTarget) * _smoothFactor;
         }
 
         private void MoveCamera() {
-            transform.Translate(GetVectorForMoveToDestination());
+            UpdateDifferenceTransformPositionSelfTarget();
+            transform.position -= GetVectorForMoveToDestination();
+        }
+
+        private void UpdateDifferenceTransformPositionSelfTarget() {
+            _differenceTransformPositionSelfTarget = transform.position - _targetTransform.position;
         }
         
         private void Update() {
             MoveCamera();
         }
 
-        public void MoveCameraToDestination(Transform destination) {
-            _destination = destination;
-        }
-        
     }
 }
