@@ -8,13 +8,12 @@ namespace Sources {
 
         [SerializeField] private Character _character;
         
-        private bool _isForwardJump;
-        
-        
+        private bool _isImmediateForwardJump;
+
         
 
         public void OnBeginDrag(PointerEventData eventData) {
-            _isForwardJump = false;
+            _isImmediateForwardJump = false;
         }
         
         public void OnDrag(PointerEventData eventData) {
@@ -32,23 +31,23 @@ namespace Sources {
 
         private void RotateCharacterHorizontal(PointerEventData eventData) {
             if (eventData.delta.x > 0) {
-                _character.RotateRight();
-            } else {
                 _character.RotateLeft();
+            } else {
+                _character.RotateRight();
             }
         }
         
         private void RotateCharacterVertical(PointerEventData eventData) {
             if (eventData.delta.y > 0) {
-                _character.RotateUp();
-            } else {
                 _character.RotateDown();
+            } else {
+                _character.RotateUp();
             }
         }
         
         private void CatchTouch() {
             if (Input.GetMouseButtonDown(0)) {
-                _isForwardJump = true;
+                _isImmediateForwardJump = true;
             }
             if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0)) {
                 HandleTouch();
@@ -60,8 +59,8 @@ namespace Sources {
         }
 
         private void HandleTouch() {
-            if (_isForwardJump) {
-                _character.RotateUp();
+            if (_isImmediateForwardJump) {
+                _character.RotateDown();
             }
             _character.JumpForward();
         }

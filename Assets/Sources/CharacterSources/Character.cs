@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Sources.CharacterSources {
     public class Character : MonoBehaviour {
 
         [SerializeField] private float _maxSpeed;
+        [SerializeField] private CharacterModel _characterModel;
 
-        private Vector3 _directionJump;
         private float _speed;
         
         private const float LEFT = -180;
@@ -14,11 +15,14 @@ namespace Sources.CharacterSources {
         private const float DOWN = -270;
 
         private Character() {
+        }
+
+        private void Start() {
             _speed = 0;
         }
 
         private void Move() {
-            transform.Translate(-Vector3.up * (Time.deltaTime * _speed));
+            transform.Translate(Vector3.up * (Time.deltaTime * _speed));
         }
 
         private void DecreaseSpeed() {
@@ -28,17 +32,20 @@ namespace Sources.CharacterSources {
         }
 
         private void Update() {
+            _characterModel.transform.position = transform.position;
             Move();
             DecreaseSpeed();
         }
-
-        private void Rotate(float value) {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, value, transform.eulerAngles.z));
-        }
-
+        
         public void JumpForward() {
             _speed = _maxSpeed;
         }
+        
+        private void Rotate(float value) {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, value, transform.eulerAngles.z));
+            _characterModel.SetDirectionMesh(value);
+        }
+        
         
         public void RotateLeft() {
             Rotate(LEFT);
@@ -55,6 +62,5 @@ namespace Sources.CharacterSources {
         public void RotateUp() {
             Rotate(UP);
         }
-        
     }
 }
