@@ -5,6 +5,7 @@ namespace Sources.CharacterSources {
     public class Character : MonoBehaviour {
 
         [SerializeField] private float _maxSpeed;
+        [SerializeField] private float _speedDecreaseFactor;
         [SerializeField] private CharacterModel _characterModel;
 
         private float _speed;
@@ -22,12 +23,12 @@ namespace Sources.CharacterSources {
         }
 
         private void Move() {
-            transform.Translate(Vector3.up * (Time.deltaTime * _speed));
+            transform.Translate(Vector3.up * (_speed));
         }
 
         private void DecreaseSpeed() {
-            if (_speed > 0) {
-                _speed --;
+            if (_speed > 0.0) {
+                _speed -= _speed * _speedDecreaseFactor;
             }
         }
 

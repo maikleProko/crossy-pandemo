@@ -2,6 +2,7 @@
 using Sources.CharacterSources;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Sources {
     public class PlayerController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
@@ -10,7 +11,11 @@ namespace Sources {
         
         private bool _isImmediateForwardJump;
 
-        
+        private void Start() {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+        }
+
 
         public void OnBeginDrag(PointerEventData eventData) {
             _isImmediateForwardJump = false;
@@ -46,10 +51,10 @@ namespace Sources {
         }
         
         private void CatchTouch() {
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
                 _isImmediateForwardJump = true;
             }
-            if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0)) {
+            if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)) {
                 HandleTouch();
             }
         }
@@ -64,6 +69,6 @@ namespace Sources {
             }
             _character.JumpForward();
         }
-
+        
     }
 }
