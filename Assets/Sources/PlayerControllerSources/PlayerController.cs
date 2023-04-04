@@ -53,6 +53,7 @@ namespace Sources {
         private void CatchTouch() {
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
                 _isImmediateForwardJump = true;
+                _character.PrepareJump();
             }
             if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)) {
                 HandleTouch();

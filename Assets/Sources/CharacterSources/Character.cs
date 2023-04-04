@@ -33,13 +33,19 @@ namespace Sources.CharacterSources {
         }
 
         private void Update() {
-            _characterModel.transform.position = transform.position;
+            _characterModel.UpdatePosition(transform.position);
             Move();
             DecreaseSpeed();
+        }
+
+        public void PrepareJump() {
+            _characterModel.StartSqueeze();
         }
         
         public void JumpForward() {
             _speed = _maxSpeed;
+            _characterModel.EndSqueeze();
+            _characterModel.StartJump();
         }
         
         private void Rotate(float value) {

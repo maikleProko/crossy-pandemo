@@ -1,0 +1,5 @@
+
+U
+%ProjectSettings/QualitySettings.asset,c\2\c2ee178d13c12c9d073a339b85cfb315a281b83d
+i
+9Assets/Sources/PlayerControllerSources/CameraComponent.cs,7\1\7179eb11da2fc5052f5c7d892fcf25c97cf0797f
