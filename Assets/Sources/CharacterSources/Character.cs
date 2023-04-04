@@ -10,6 +10,7 @@ namespace Sources.CharacterSources {
 
         private float _speed;
         
+        // TODO: TAKE THE CONSTANTS OUTSIDE
         private const float LEFT = -180;
         private const float UP = -90;
         private const float RIGHT = 0;
@@ -23,6 +24,7 @@ namespace Sources.CharacterSources {
         }
 
         private void Move() {
+            // TODO CHANGE MOVEMENT BY CREATING AND USING TILES
             transform.Translate(Vector3.up * (_speed));
         }
 

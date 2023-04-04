@@ -10,6 +10,7 @@ namespace Sources.CharacterSources {
         [SerializeField] private float _jumpHeight;
         [SerializeField] private float _jumpSpeed;
         
+        // TODO: TAKE THE CONSTANTS OUTSIDE
         private const float UP = -90;
         private const float DOWN = -270;
         private const double TOLERANCE = 0.00001;
@@ -42,7 +43,7 @@ namespace Sources.CharacterSources {
         }
 
         public void SetDirectionMesh(float value) {
-            // TODO WORKAROUND
+            // TODO WORKAROUND: NOW, WEIRD BEHAVIOR OF ROTATIONS
             switch (value) {
                 case UP:
                     _direction = DOWN;
@@ -74,10 +75,12 @@ namespace Sources.CharacterSources {
         }
 
         public void StartJump() {
+            // TODO: CHANGE THE LOGIC OF THE JUMP BY ASSOCIATING IT WITH THE MOVEMENT OF THE CHARACTER
             _jumpDestination = _jumpHeight;
         }
 
         private void UpdateJump() {
+            // TODO: CHANGE THE LOGIC OF THE JUMP BY ASSOCIATING IT WITH THE MOVEMENT OF THE CHARACTER
             var position = transform.localPosition;
             var jumpUnit = _jumpHeight * _jumpSpeed;
             if (Math.Abs(position.y - _jumpDestination) > jumpUnit) {
@@ -90,18 +93,17 @@ namespace Sources.CharacterSources {
         }
 
         private void EndJump() {
+            // TODO: CHANGE THE LOGIC OF THE JUMP BY ASSOCIATING IT WITH THE MOVEMENT OF THE CHARACTER
             _jumpDestination = DEFAULT_HEIGHT;
         }
 
         public void UpdatePosition(Vector3 position) {
+            // TODO: DELETE THIS METHOD WITH REPLACING ANOTHER LOGIC BECAUSE THAT VIOLATES THE PRINCIPLES OF OOP
             transform.position = new Vector3(
                 position.x,
                 transform.position.y,
                 position.z
             );
         }
-        
-        
-
     }
 }
